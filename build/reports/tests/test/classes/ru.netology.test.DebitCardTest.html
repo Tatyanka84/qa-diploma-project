@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - Тесты оплаты дебетовой картой</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>Тесты оплаты дебетовой картой</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/ru.netology.test.html">ru.netology.test</a> &gt; DebitCardTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">28</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">10</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">2m10.89s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox failures" id="successRate">
+<div class="percent">64%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Failed tests</a>
+</li>
+<li>
+<a href="#tab1">Tests</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Failed tests</h2>
+<div class="test">
+<a name="shouldCardNumberNotRegistered()"></a>
+<h3 class="failures">Незарегистрированная карта</h3>
+<span class="code">
+<pre>org.opentest4j.AssertionFailedError: expected: &lt;DECLINED&gt; but was: &lt;null&gt;
+	at app//org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at app//org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at app//org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at app//org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at app//org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at app//org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at app//ru.netology.test.DebitCardTest.shouldCardNumberNotRegistered(DebitCardTest.java:134)
+	at java.base@11.0.32.1/java.lang.reflect.Method.invoke(Method.java:566)
+	at java.base@11.0.32.1/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at java.base@11.0.32.1/java.util.ArrayList.forEach(ArrayList.java:1541)
+</pre>
+</span>
+</div>
+<div class="test">
+<a name="shouldCardPaymentDeclined()"></a>
+<h3 class="failures">Оплата отклонённой картой (DECLINED)</h3>
+<span class="code">
+<pre>Element should text &quot;Банк отказал в проведении операции.&quot; {.notification_status_error .notification__content}
+Element: '&lt;div class=&quot;notification__content&quot; displayed:false&gt;&lt;/div&gt;'
+Actual value: text=&quot;&quot;
+Screenshot: file:/C:/Idea/qa-diploma-project/build/reports/tests/1791919048167.17.png
+Page source: file:/C:/Idea/qa-diploma-project/build/reports/tests/1791919048167.17.html
+Timeout: 15 s.
+	at app//com.codeborne.selenide.impl.WebElementSource.handleError(WebElementSource.java:149)
+	at app//com.codeborne.selenide.impl.WebElementSource.checkConditionAndReturnElement(WebElementSource.java:127)
+	at app//com.codeborne.selenide.impl.WebElementSource.checkCondition(WebElementSource.java:104)
+	at app//com.codeborne.selenide.commands.Should.execute(Should.java:30)
+	at app//com.codeborne.selenide.commands.Should.execute(Should.java:14)
+	at app//com.codeborne.selenide.commands.Commands.execute(Commands.java:165)
+	at app//com.codeborne.selenide.impl.SelenideElementProxy.dispatchAndRetry(SelenideElementProxy.java:132)
+	at app//com.codeborne.selenide.impl.SelenideElementProxy.invoke(SelenideElementProxy.java:84)
+	at app//com.sun.proxy.$Proxy19.should(Unknown Source)
+	at app//ru.netology.page.PaymentPage.paymentDeclined(PaymentPage.java:86)
+	at app//ru.netology.test.DebitCardTest.shouldCardPaymentDeclined(DebitCardTest.java:68)
+	at java.base@11.0.32.1/java.lang.reflect.Method.invoke(Method.java:566)
+	at java.base@11.0.32.1/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at java.base@11.0.32.1/java.util.ArrayList.forEach(ArrayList.java:1541)
+</pre>
+</span>
+</div>
+<div class="test">
+<a name="shouldCurrentYear()"></a>
+<h3 class="failures">Текущий год</h3>
+<span class="code">
+<pre>Element not found {.form-field .input-group__input-case.findBy(text &quot;Год&quot;)/.input__sub}
+Expected: text &quot;Истёк срок действия карты&quot;
+Screenshot: file:/C:/Idea/qa-diploma-project/build/reports/tests/1791919032106.16.png
+Page source: file:/C:/Idea/qa-diploma-project/build/reports/tests/1791919032106.16.html
+Timeout: 5 s.
+Caused by: NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;.input__sub&quot;}
+	at app//com.codeborne.selenide.impl.WebElementSource.createElementNotFoundError(WebElementSource.java:91)
+	at app//com.codeborne.selenide.impl.ElementFinder.createElementNotFoundError(ElementFinder.java:142)
+	at app//com.codeborne.selenide.impl.WebElementSource.handleError(WebElementSource.java:143)
+	at app//com.codeborne.selenide.impl.WebElementSource.checkConditionAndReturnElement(WebElementSource.java:127)
+	at app//com.codeborne.selenide.impl.WebElementSource.checkCondition(WebElementSource.java:104)
+	at app//com.codeborne.selenide.commands.Should.execute(Should.java:30)
+	at app//com.codeborne.selenide.commands.Should.execute(Should.java:14)
+	at app//com.codeborne.selenide.commands.Commands.execute(Commands.java:165)
+	at app//com.codeborne.selenide.impl.SelenideElementProxy.dispatchAndRetry(SelenideElementProxy.java:132)
+	at app//com.codeborne.selenide.impl.SelenideElementProxy.invoke(SelenideElementProxy.java:84)
+	at app//com.sun.proxy.$Proxy19.should(Unknown Source)
+	at app//ru.netology.page.PaymentPage.incorrectYearVisible(PaymentPage.java:104)
+	at app//ru.netology.test.DebitCardTest.shouldCurrentYear(DebitCardTest.java:212)
+	at java.base@11.0.32.1/java.lang.reflect.Method.invoke(Method.java:566)
+	at java.base@11.0.32.1/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at java.base@11.0.32.1/java.util.ArrayList.forEach(ArrayList.java:1541)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;.input__sub&quot;}
+  (Session info: chrome=154.0.8037.98)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.13.0', revision: 'ba948ece5b*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.32.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [329fd6a8cbd58d4b822a85fbfeb5b985, findChildElement {id=f.819284E08C51E99852AE9F63CA3A2CB4.d.220B065170F16CA0A59CEDF92D0601FF.e.3146, using=css selector, value=.input__sub}]
+Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 154.0.8037.98, chrome: {chromedriverVersion: 154.0.8037.92 (334b65d254cc..., userDataDir: C:\Users\9FA5~1\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55450}, goog:processID: 20004, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:55450/devtoo..., se:cdpVersion: 154.0.8037.98, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: accept, webauthn:extension:cmtgKey: true, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 329fd6a8cbd58d4b822a85fbfeb5b985
+	at jdk.internal.reflect.GeneratedConstructorAccessor20.newInstance(Unknown Source)
+	at java.base@11.0.32.1/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base@11.0.32.1/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at app//org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at app//org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at app//org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+	at app//org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+	at app//org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:196)
+	at app//org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:171)
+	at app//org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:602)
+	at app//org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at app//org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at app//org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:359)
+	at app//org.openqa.selenium.remote.RemoteWebElement.findElement(RemoteWebElement.java:212)
+	at app//com.codeborne.selenide.impl.WebElementSelector.findElement(WebElementSelector.java:70)
+	at app//com.codeborne.selenide.impl.WebElementSelector.findElement(WebElementSelector.java:44)
+	at app//com.codeborne.selenide.impl.WebElementSelector.findElement(WebElementSelector.java:33)
+	at app//com.codeborne.selenide.impl.ElementFinder.getWebElement(ElementFinder.java:122)
+	at app//com.codeborne.selenide.impl.WebElementSource.checkConditionAndReturnElement(WebElementSource.java:116)
+	... 12 more
+</pre>
+</span>
+</div>
+<div class="test">
+<a name="shouldHolderOfOneLetter()"></a>
+<h3 class="failures">Владелец из одной буквы</h3>
+<span class="code">
+<pre>Element not found {.form-field .input-group__input-case.findBy(text &quot;Владелец&quot;)/.input__sub}
+Expected: text &quot;Неверный формат&quot;
+Screenshot: file:/C:/Idea/qa-diploma-project/build/reports/tests/1791919007803.15.png
+Page source: file:/C:/Idea/qa-diploma-project/build/reports/tests/1791919007803.15.html
+Timeout: 5 s.
+Caused by: NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;.input__sub&quot;}
+	at app//com.codeborne.selenide.impl.WebElementSource.createElementNotFoundError(WebElementSource.java:91)
+	at app//com.codeborne.selenide.impl.ElementFinder.createElementNotFoundError(ElementFinder.java:142)
+	at app//com.codeborne.selenide.impl.WebElementSource.handleError(WebElementSource.java:143)
+	at app//com.codeborne.selenide.impl.WebElementSource.checkConditionAndReturnElement(WebElementSource.java:127)
+	at app//com.codeborne.selenide.impl.WebElementSource.checkCondition(WebElementSource.java:104)
+	at app//com.codeborne.selenide.commands.Should.execute(Should.java:30)
+	at app//com.codeborne.selenide.commands.Should.execute(Should.java:14)
+	at app//com.codeborne.selenide.commands.Commands.execute(Commands.java:165)
+	at app//com.codeborne.selenide.impl.SelenideElementProxy.dispatchAndRetry(SelenideElementProxy.java:132)
+	at app//com.codeborne.selenide.impl.SelenideElementProxy.invoke(SelenideElementProxy.java:84)
+	at app//com.sun.proxy.$Proxy19.should(Unknown Source)
+	at app//ru.netology.page.PaymentPage.incorrectHolderVisible(PaymentPage.java:110)
+	at app//ru.netology.test.DebitCardTest.shouldHolderOfOneLetter(DebitCardTest.java:260)
+	at java.base@11.0.32.1/java.lang.reflect.Method.invoke(Method.java:566)
+	at java.base@11.0.32.1/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at java.base@11.0.32.1/java.util.ArrayList.forEach(ArrayList.java:1541)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;.input__sub&quot;}
+  (Session info: chrome=154.0.8037.98)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.13.0', revision: 'ba948ece5b*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.32.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [329fd6a8cbd58d4b822a85fbfeb5b985, findChildElement {id=f.819284E08C51E99852AE9F63CA3A2CB4.d.D857044C330AB200ACB4CA0E72ED95B3.e.2902, using=css selector, value=.input__sub}]
+Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 154.0.8037.98, chrome: {chromedriverVersion: 154.0.8037.92 (334b65d254cc..., userDataDir: C:\Users\9FA5~1\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55450}, goog:processID: 20004, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:55450/devtoo..., se:cdpVersion: 154.0.8037.98, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: accept, webauthn:extension:cmtgKey: true, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 329fd6a8cbd58d4b822a85fbfeb5b985
+	at jdk.internal.reflect.GeneratedConstructorAccessor20.newInstance(Unknown Source)
+	at java.base@11.0.32.1/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base@11.0.32.1/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at app//org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at app//org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at app//org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+	at app//org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+	at app//org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:196)
+	at app//org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:171)
+	at app//org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:602)
+	at app//org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at app//org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at app//org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:359)
+	at app//org.openqa.selenium.remote.RemoteWebElement.findElement(RemoteWebElement.java:212)
+	at app//com.codeborne.selenide.impl.WebElementSelector.findElement(WebElementSelector.java:70)
+	at app//com.codeborne.selenide.impl.WebElementSelector.findElement(WebElementSelector.java:44)
+	at app//com.codeborne.selenide.impl.WebElementSelector.findElement(WebElementSelector.java:33)
+	at app//com.codeborne.selenide.impl.ElementFinder.getWebElement(ElementFinder.java:122)
+	at app//com.codeborne.selenide.impl.WebElementSource.checkConditionAndReturnElement(WebElementSource.java:116)
+	... 12 more
+</pre>
+</span>
+</div>
+<div class="test">
+<a name="shouldHolderOfTwoLetters()"></a>
+<h3 class="failures">Владелец из двух букв</h3>
+<span class="code">
+<pre>Element not found {.form-field .input-group__input-case.findBy(text &quot;Владелец&quot;)/.input__sub}
+Expected: text &quot;Неверный формат&quot;
+Screenshot: file:/C:/Idea/qa-diploma-project/build/reports/tests/1791918950343.9.png
+Page source: file:/C:/Idea/qa-diploma-project/build/reports/tests/1791918950343.9.html
+Timeout: 5 s.
+Caused by: NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;.input__sub&quot;}
+	at app//com.codeborne.selenide.impl.WebElementSource.createElementNotFoundError(WebElementSource.java:91)
+	at app//com.codeborne.selenide.impl.ElementFinder.createElementNotFoundError(ElementFinder.java:142)
+	at app//com.codeborne.selenide.impl.WebElementSource.handleError(WebElementSource.java:143)
+	at app//com.codeborne.selenide.impl.WebElementSource.checkConditionAndReturnElement(WebElementSource.java:127)
+	at app//com.codeborne.selenide.impl.WebElementSource.checkCondition(WebElementSource.java:104)
+	at app//com.codeborne.selenide.commands.Should.execute(Should.java:30)
+	at app//com.codeborne.selenide.commands.Should.execute(Should.java:14)
+	at app//com.codeborne.selenide.commands.Commands.execute(Commands.java:165)
+	at app//com.codeborne.selenide.impl.SelenideElementProxy.dispatchAndRetry(SelenideElementProxy.java:132)
+	at app//com.codeborne.selenide.impl.SelenideElementProxy.invoke(SelenideElementProxy.java:84)
+	at app//com.sun.proxy.$Proxy19.should(Unknown Source)
+	at app//ru.netology.page.PaymentPage.incorrectHolderVisible(PaymentPage.java:110)
+	at app//ru.netology.test.DebitCardTest.shouldHolderOfTwoLetters(DebitCardTest.java:272)
+	at java.base@11.0.32.1/java.lang.reflect.Method.invoke(Method.java:566)
+	at java.base@11.0.32.1/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at java.base@11.0.32.1/java.util.ArrayList.forEach(ArrayList.java:1541)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;.input__sub&quot;}
+  (Session info: chrome=154.0.8037.98)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.13.0', revision: 'ba948ece5b*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.32.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [329fd6a8cbd58d4b822a85fbfeb5b985, findChildElement {id=f.819284E08C51E99852AE9F63CA3A2CB4.d.E3B27BBD6BF774D79A8CAADD33EF7E38.e.2093, using=css selector, value=.input__sub}]
+Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 154.0.8037.98, chrome: {chromedriverVersion: 154.0.8037.92 (334b65d254cc..., userDataDir: C:\Users\9FA5~1\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55450}, goog:processID: 20004, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:55450/devtoo..., se:cdpVersion: 154.0.8037.98, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: accept, webauthn:extension:cmtgKey: true, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 329fd6a8cbd58d4b822a85fbfeb5b985
+	at jdk.internal.reflect.GeneratedConstructorAccessor20.newInstance(Unknown Source)
+	at java.base@11.0.32.1/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base@11.0.32.1/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at app//org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at app//org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at app//org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+	at app//org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+	at app//org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:196)
+	at app//org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:171)
+	at app//org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:602)
+	at app//org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at app//org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at app//org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:359)
+	at app//org.openqa.selenium.remote.RemoteWebElement.findElement(RemoteWebElement.java:212)
+	at app//com.codeborne.selenide.impl.WebElementSelector.findElement(WebElementSelector.java:70)
+	at app//com.codeborne.selenide.impl.WebElementSelector.findElement(WebElementSelector.java:44)
+	at app//com.codeborne.selenide.impl.WebElementSelector.findElement(WebElementSelector.java:33)
+	at app//com.codeborne.selenide.impl.ElementFinder.getWebElement(ElementFinder.java:122)
+	at app//com.codeborne.selenide.impl.WebElementSource.checkConditionAndReturnElement(WebElementSource.java:116)
+	... 12 more
+</pre>
+</span>
+</div>
+<div class="test">
+<a name="shouldHolderWithCyrillic()"></a>
+<h3 class="failures">Владелец кириллицей</h3>
+<span class="code">
+<pre>Element not found {.form-field .input-group__input-case.findBy(text &quot;Владелец&quot;)/.input__sub}
+Expected: text &quot;Неверный формат&quot;
+Screenshot: file:/C:/Idea/qa-diploma-project/build/reports/tests/1791918982260.12.png
+Page source: file:/C:/Idea/qa-diploma-project/build/reports/tests/1791918982260.12.html
+Timeout: 5 s.
+Caused by: NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;.input__sub&quot;}
+	at app//com.codeborne.selenide.impl.WebElementSource.createElementNotFoundError(WebElementSource.java:91)
+	at app//com.codeborne.selenide.impl.ElementFinder.createElementNotFoundError(ElementFinder.java:142)
+	at app//com.codeborne.selenide.impl.WebElementSource.handleError(WebElementSource.java:143)
+	at app//com.codeborne.selenide.impl.WebElementSource.checkConditionAndReturnElement(WebElementSource.java:127)
+	at app//com.codeborne.selenide.impl.WebElementSource.checkCondition(WebElementSource.java:104)
+	at app//com.codeborne.selenide.commands.Should.execute(Should.java:30)
+	at app//com.codeborne.selenide.commands.Should.execute(Should.java:14)
+	at app//com.codeborne.selenide.commands.Commands.execute(Commands.java:165)
+	at app//com.codeborne.selenide.impl.SelenideElementProxy.dispatchAndRetry(SelenideElementProxy.java:132)
+	at app//com.codeborne.selenide.impl.SelenideElementProxy.invoke(SelenideElementProxy.java:84)
+	at app//com.sun.proxy.$Proxy19.should(Unknown Source)
+	at app//ru.netology.page.PaymentPage.incorrectHolderVisible(PaymentPage.java:110)
+	at app//ru.netology.test.DebitCardTest.shouldHolderWithCyrillic(DebitCardTest.java:284)
+	at java.base@11.0.32.1/java.lang.reflect.Method.invoke(Method.java:566)
+	at java.base@11.0.32.1/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at java.base@11.0.32.1/java.util.ArrayList.forEach(ArrayList.java:1541)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;.input__sub&quot;}
+  (Session info: chrome=154.0.8037.98)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.13.0', revision: 'ba948ece5b*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.32.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [329fd6a8cbd58d4b822a85fbfeb5b985, findChildElement {id=f.819284E08C51E99852AE9F63CA3A2CB4.d.2C7317C7396D8D74C74D8F5E706C0858.e.2518, using=css selector, value=.input__sub}]
+Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 154.0.8037.98, chrome: {chromedriverVersion: 154.0.8037.92 (334b65d254cc..., userDataDir: C:\Users\9FA5~1\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55450}, goog:processID: 20004, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:55450/devtoo..., se:cdpVersion: 154.0.8037.98, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: accept, webauthn:extension:cmtgKey: true, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 329fd6a8cbd58d4b822a85fbfeb5b985
+	at jdk.internal.reflect.GeneratedConstructorAccessor20.newInstance(Unknown Source)
+	at java.base@11.0.32.1/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base@11.0.32.1/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at app//org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at app//org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at app//org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+	at app//org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+	at app//org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:196)
+	at app//org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:171)
+	at app//org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:602)
+	at app//org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at app//org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at app//org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:359)
+	at app//org.openqa.selenium.remote.RemoteWebElement.findElement(RemoteWebElement.java:212)
+	at app//com.codeborne.selenide.impl.WebElementSelector.findElement(WebElementSelector.java:70)
+	at app//com.codeborne.selenide.impl.WebElementSelector.findElement(WebElementSelector.java:44)
+	at app//com.codeborne.selenide.impl.WebElementSelector.findElement(WebElementSelector.java:33)
+	at app//com.codeborne.selenide.impl.ElementFinder.getWebElement(ElementFinder.java:122)
+	at app//com.codeborne.selenide.impl.WebElementSource.checkConditionAndReturnElement(WebElementSource.java:116)
+	... 12 more
+</pre>
+</span>
+</div>
+<div class="test">
+<a name="shouldHolderWithDigitsByCard()"></a>
+<h3 class="failures">Владелец цифрами при оплате картой</h3>
+<span class="code">
+<pre>Element not found {.form-field .input-group__input-case.findBy(text &quot;Владелец&quot;)/.input__sub}
+Expected: text &quot;Неверный формат&quot;
+Screenshot: file:/C:/Idea/qa-diploma-project/build/reports/tests/1791919001430.14.png
+Page source: file:/C:/Idea/qa-diploma-project/build/reports/tests/1791919001430.14.html
+Timeout: 5 s.
+Caused by: NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;.input__sub&quot;}
+	at app//com.codeborne.selenide.impl.WebElementSource.createElementNotFoundError(WebElementSource.java:91)
+	at app//com.codeborne.selenide.impl.ElementFinder.createElementNotFoundError(ElementFinder.java:142)
+	at app//com.codeborne.selenide.impl.WebElementSource.handleError(WebElementSource.java:143)
+	at app//com.codeborne.selenide.impl.WebElementSource.checkConditionAndReturnElement(WebElementSource.java:127)
+	at app//com.codeborne.selenide.impl.WebElementSource.checkCondition(WebElementSource.java:104)
+	at app//com.codeborne.selenide.commands.Should.execute(Should.java:30)
+	at app//com.codeborne.selenide.commands.Should.execute(Should.java:14)
+	at app//com.codeborne.selenide.commands.Commands.execute(Commands.java:165)
+	at app//com.codeborne.selenide.impl.SelenideElementProxy.dispatchAndRetry(SelenideElementProxy.java:132)
+	at app//com.codeborne.selenide.impl.SelenideElementProxy.invoke(SelenideElementProxy.java:84)
+	at app//com.sun.proxy.$Proxy19.should(Unknown Source)
+	at app//ru.netology.page.PaymentPage.incorrectHolderVisible(PaymentPage.java:110)
+	at app//ru.netology.test.DebitCardTest.shouldHolderWithDigitsByCard(DebitCardTest.java:306)
+	at java.base@11.0.32.1/java.lang.reflect.Method.invoke(Method.java:566)
+	at java.base@11.0.32.1/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at java.base@11.0.32.1/java.util.ArrayList.forEach(ArrayList.java:1541)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;.input__sub&quot;}
+  (Session info: chrome=154.0.8037.98)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.13.0', revision: 'ba948ece5b*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.32.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [329fd6a8cbd58d4b822a85fbfeb5b985, findChildElement {id=f.819284E08C51E99852AE9F63CA3A2CB4.d.FE751EEEF022B8284EDBE0B19501925F.e.2816, using=css selector, value=.input__sub}]
+Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 154.0.8037.98, chrome: {chromedriverVersion: 154.0.8037.92 (334b65d254cc..., userDataDir: C:\Users\9FA5~1\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55450}, goog:processID: 20004, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:55450/devtoo..., se:cdpVersion: 154.0.8037.98, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: accept, webauthn:extension:cmtgKey: true, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 329fd6a8cbd58d4b822a85fbfeb5b985
+	at jdk.internal.reflect.GeneratedConstructorAccessor20.newInstance(Unknown Source)
+	at java.base@11.0.32.1/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base@11.0.32.1/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at app//org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at app//org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at app//org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+	at app//org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+	at app//org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:196)
+	at app//org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:171)
+	at app//org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:602)
+	at app//org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at app//org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at app//org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:359)
+	at app//org.openqa.selenium.remote.RemoteWebElement.findElement(RemoteWebElement.java:212)
+	at app//com.codeborne.selenide.impl.WebElementSelector.findElement(WebElementSelector.java:70)
+	at app//com.codeborne.selenide.impl.WebElementSelector.findElement(WebElementSelector.java:44)
+	at app//com.codeborne.selenide.impl.WebElementSelector.findElement(WebElementSelector.java:33)
+	at app//com.codeborne.selenide.impl.ElementFinder.getWebElement(ElementFinder.java:122)
+	at app//com.codeborne.selenide.impl.WebElementSource.checkConditionAndReturnElement(WebElementSource.java:116)
+	... 12 more
+</pre>
+</span>
+</div>
+<div class="test">
+<a name="shouldHolderWithSpecialSymbols()"></a>
+<h3 class="failures">Владелец со специальными символами</h3>
+<span class="code">
+<pre>Element not found {.form-field .input-group__input-case.findBy(text &quot;Владелец&quot;)/.input__sub}
+Expected: text &quot;Неверный формат&quot;
+Screenshot: file:/C:/Idea/qa-diploma-project/build/reports/tests/1791918974294.11.png
+Page source: file:/C:/Idea/qa-diploma-project/build/reports/tests/1791918974294.11.html
+Timeout: 5 s.
+Caused by: NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;.input__sub&quot;}
+	at app//com.codeborne.selenide.impl.WebElementSource.createElementNotFoundError(WebElementSource.java:91)
+	at app//com.codeborne.selenide.impl.ElementFinder.createElementNotFoundError(ElementFinder.java:142)
+	at app//com.codeborne.selenide.impl.WebElementSource.handleError(WebElementSource.java:143)
+	at app//com.codeborne.selenide.impl.WebElementSource.checkConditionAndReturnElement(WebElementSource.java:127)
+	at app//com.codeborne.selenide.impl.WebElementSource.checkCondition(WebElementSource.java:104)
+	at app//com.codeborne.selenide.commands.Should.execute(Should.java:30)
+	at app//com.codeborne.selenide.commands.Should.execute(Should.java:14)
+	at app//com.codeborne.selenide.commands.Commands.execute(Commands.java:165)
+	at app//com.codeborne.selenide.impl.SelenideElementProxy.dispatchAndRetry(SelenideElementProxy.java:132)
+	at app//com.codeborne.selenide.impl.SelenideElementProxy.invoke(SelenideElementProxy.java:84)
+	at app//com.sun.proxy.$Proxy19.should(Unknown Source)
+	at app//ru.netology.page.PaymentPage.incorrectHolderVisible(PaymentPage.java:110)
+	at app//ru.netology.test.DebitCardTest.shouldHolderWithSpecialSymbols(DebitCardTest.java:296)
+	at java.base@11.0.32.1/java.lang.reflect.Method.invoke(Method.java:566)
+	at java.base@11.0.32.1/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at java.base@11.0.32.1/java.util.ArrayList.forEach(ArrayList.java:1541)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;.input__sub&quot;}
+  (Session info: chrome=154.0.8037.98)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.13.0', revision: 'ba948ece5b*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.32.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [329fd6a8cbd58d4b822a85fbfeb5b985, findChildElement {id=f.819284E08C51E99852AE9F63CA3A2CB4.d.C63FC2E513E9D70D308B2731310B8762.e.2349, using=css selector, value=.input__sub}]
+Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 154.0.8037.98, chrome: {chromedriverVersion: 154.0.8037.92 (334b65d254cc..., userDataDir: C:\Users\9FA5~1\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55450}, goog:processID: 20004, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:55450/devtoo..., se:cdpVersion: 154.0.8037.98, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: accept, webauthn:extension:cmtgKey: true, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 329fd6a8cbd58d4b822a85fbfeb5b985
+	at jdk.internal.reflect.GeneratedConstructorAccessor20.newInstance(Unknown Source)
+	at java.base@11.0.32.1/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base@11.0.32.1/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at app//org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at app//org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at app//org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+	at app//org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+	at app//org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:196)
+	at app//org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:171)
+	at app//org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:602)
+	at app//org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at app//org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at app//org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:359)
+	at app//org.openqa.selenium.remote.RemoteWebElement.findElement(RemoteWebElement.java:212)
+	at app//com.codeborne.selenide.impl.WebElementSelector.findElement(WebElementSelector.java:70)
+	at app//com.codeborne.selenide.impl.WebElementSelector.findElement(WebElementSelector.java:44)
+	at app//com.codeborne.selenide.impl.WebElementSelector.findElement(WebElementSelector.java:33)
+	at app//com.codeborne.selenide.impl.ElementFinder.getWebElement(ElementFinder.java:122)
+	at app//com.codeborne.selenide.impl.WebElementSource.checkConditionAndReturnElement(WebElementSource.java:116)
+	... 12 more
+</pre>
+</span>
+</div>
+<div class="test">
+<a name="shouldMonthDoubleZero()"></a>
+<h3 class="failures">Месяц 00</h3>
+<span class="code">
+<pre>Element not found {.form-field .input-group__input-case.findBy(text &quot;Месяц&quot;)/.input__sub}
+Expected: text &quot;Неверно указан срок действия карты&quot;
+Screenshot: file:/C:/Idea/qa-diploma-project/build/reports/tests/1791918994510.13.png
+Page source: file:/C:/Idea/qa-diploma-project/build/reports/tests/1791918994510.13.html
+Timeout: 5 s.
+Caused by: NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;.input__sub&quot;}
+	at app//com.codeborne.selenide.impl.WebElementSource.createElementNotFoundError(WebElementSource.java:91)
+	at app//com.codeborne.selenide.impl.ElementFinder.createElementNotFoundError(ElementFinder.java:142)
+	at app//com.codeborne.selenide.impl.WebElementSource.handleError(WebElementSource.java:143)
+	at app//com.codeborne.selenide.impl.WebElementSource.checkConditionAndReturnElement(WebElementSource.java:127)
+	at app//com.codeborne.selenide.impl.WebElementSource.checkCondition(WebElementSource.java:104)
+	at app//com.codeborne.selenide.commands.Should.execute(Should.java:30)
+	at app//com.codeborne.selenide.commands.Should.execute(Should.java:14)
+	at app//com.codeborne.selenide.commands.Commands.execute(Commands.java:165)
+	at app//com.codeborne.selenide.impl.SelenideElementProxy.dispatchAndRetry(SelenideElementProxy.java:132)
+	at app//com.codeborne.selenide.impl.SelenideElementProxy.invoke(SelenideElementProxy.java:84)
+	at app//com.sun.proxy.$Proxy19.should(Unknown Source)
+	at app//ru.netology.page.PaymentPage.incorrectMonthVisible(PaymentPage.java:98)
+	at app//ru.netology.test.DebitCardTest.shouldMonthDoubleZero(DebitCardTest.java:156)
+	at java.base@11.0.32.1/java.lang.reflect.Method.invoke(Method.java:566)
+	at java.base@11.0.32.1/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at java.base@11.0.32.1/java.util.ArrayList.forEach(ArrayList.java:1541)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;.input__sub&quot;}
+  (Session info: chrome=154.0.8037.98)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.13.0', revision: 'ba948ece5b*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.32.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [329fd6a8cbd58d4b822a85fbfeb5b985, findChildElement {id=f.819284E08C51E99852AE9F63CA3A2CB4.d.15DCB50A124ED1EA007B2DA52FB94FAB.e.2688, using=css selector, value=.input__sub}]
+Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 154.0.8037.98, chrome: {chromedriverVersion: 154.0.8037.92 (334b65d254cc..., userDataDir: C:\Users\9FA5~1\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55450}, goog:processID: 20004, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:55450/devtoo..., se:cdpVersion: 154.0.8037.98, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: accept, webauthn:extension:cmtgKey: true, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 329fd6a8cbd58d4b822a85fbfeb5b985
+	at jdk.internal.reflect.GeneratedConstructorAccessor20.newInstance(Unknown Source)
+	at java.base@11.0.32.1/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base@11.0.32.1/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at app//org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at app//org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at app//org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+	at app//org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+	at app//org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:196)
+	at app//org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:171)
+	at app//org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:602)
+	at app//org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at app//org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at app//org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:359)
+	at app//org.openqa.selenium.remote.RemoteWebElement.findElement(RemoteWebElement.java:212)
+	at app//com.codeborne.selenide.impl.WebElementSelector.findElement(WebElementSelector.java:70)
+	at app//com.codeborne.selenide.impl.WebElementSelector.findElement(WebElementSelector.java:44)
+	at app//com.codeborne.selenide.impl.WebElementSelector.findElement(WebElementSelector.java:33)
+	at app//com.codeborne.selenide.impl.ElementFinder.getWebElement(ElementFinder.java:122)
+	at app//com.codeborne.selenide.impl.WebElementSource.checkConditionAndReturnElement(WebElementSource.java:116)
+	... 12 more
+</pre>
+</span>
+</div>
+<div class="test">
+<a name="shouldYearTenYearsMore()"></a>
+<h3 class="failures">Год через 10 лет</h3>
+<span class="code">
+<pre>Element should text &quot;Операция одобрена Банком.&quot; {.notification_status_ok .notification__content}
+Element: '&lt;div class=&quot;notification__content&quot; displayed:false&gt;&lt;/div&gt;'
+Actual value: text=&quot;&quot;
+Screenshot: file:/C:/Idea/qa-diploma-project/build/reports/tests/1791918968134.10.png
+Page source: file:/C:/Idea/qa-diploma-project/build/reports/tests/1791918968134.10.html
+Timeout: 15 s.
+	at app//com.codeborne.selenide.impl.WebElementSource.handleError(WebElementSource.java:149)
+	at app//com.codeborne.selenide.impl.WebElementSource.checkConditionAndReturnElement(WebElementSource.java:127)
+	at app//com.codeborne.selenide.impl.WebElementSource.checkCondition(WebElementSource.java:104)
+	at app//com.codeborne.selenide.commands.Should.execute(Should.java:30)
+	at app//com.codeborne.selenide.commands.Should.execute(Should.java:14)
+	at app//com.codeborne.selenide.commands.Commands.execute(Commands.java:165)
+	at app//com.codeborne.selenide.impl.SelenideElementProxy.dispatchAndRetry(SelenideElementProxy.java:132)
+	at app//com.codeborne.selenide.impl.SelenideElementProxy.invoke(SelenideElementProxy.java:84)
+	at app//com.sun.proxy.$Proxy19.should(Unknown Source)
+	at app//ru.netology.page.PaymentPage.paymentApproved(PaymentPage.java:80)
+	at app//ru.netology.test.DebitCardTest.shouldYearTenYearsMore(DebitCardTest.java:236)
+	at java.base@11.0.32.1/java.lang.reflect.Method.invoke(Method.java:566)
+	at java.base@11.0.32.1/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at java.base@11.0.32.1/java.util.ArrayList.forEach(ArrayList.java:1541)
+</pre>
+</span>
+</div>
+</div>
+<div id="tab1" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Method name</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">Пустое поле CVC</td>
+<td class="success">shouldCVCCVVIfEmpty()</td>
+<td class="success">0.951s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">CVC из трёх цифр</td>
+<td class="success">shouldCVCCVVOnThreeDigit()</td>
+<td class="success">6.803s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">CVC из двух цифр</td>
+<td class="success">shouldCVCCVVOnTwoDigit()</td>
+<td class="success">0.999s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">CVC со специальными символами</td>
+<td class="success">shouldCVCCVVWithSpecialSymbols()</td>
+<td class="success">0.947s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">Пустое поле номера карты</td>
+<td class="success">shouldCardIfEmpty()</td>
+<td class="success">0.810s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="failures">Незарегистрированная карта</td>
+<td class="failures">shouldCardNumberNotRegistered()</td>
+<td class="failures">1.423s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="success">Номер карты из 15 цифр</td>
+<td class="success">shouldCardNumberOfFifteenDigits()</td>
+<td class="success">0.930s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">Номер карты из 16 цифр</td>
+<td class="success">shouldCardNumberOfSixteenDigits()</td>
+<td class="success">7.556s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">Успешная оплата дебетовой картой (APPROVED)</td>
+<td class="success">shouldCardPaymentApproved()</td>
+<td class="success">3.235s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="failures">Оплата отклонённой картой (DECLINED)</td>
+<td class="failures">shouldCardPaymentDeclined()</td>
+<td class="failures">16.039s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="success">Номер карты со специальными символами</td>
+<td class="success">shouldCardWithSpecialSymbols()</td>
+<td class="success">0.863s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="failures">Текущий год</td>
+<td class="failures">shouldCurrentYear()</td>
+<td class="failures">6.050s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="success">Отправка пустой формы при оплате картой</td>
+<td class="success">shouldFormIfEmptyByCard()</td>
+<td class="success">0.968s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">Пустое поле владельца</td>
+<td class="success">shouldHolderIfEmpty()</td>
+<td class="success">0.842s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="failures">Владелец из одной буквы</td>
+<td class="failures">shouldHolderOfOneLetter()</td>
+<td class="failures">6.314s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="failures">Владелец из двух букв</td>
+<td class="failures">shouldHolderOfTwoLetters()</td>
+<td class="failures">6.135s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="failures">Владелец кириллицей</td>
+<td class="failures">shouldHolderWithCyrillic()</td>
+<td class="failures">6.063s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="failures">Владелец цифрами при оплате картой</td>
+<td class="failures">shouldHolderWithDigitsByCard()</td>
+<td class="failures">6.179s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="success">Владелец с дефисом при оплате картой</td>
+<td class="success">shouldHolderWithHyphenByCard()</td>
+<td class="success">8.680s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="failures">Владелец со специальными символами</td>
+<td class="failures">shouldHolderWithSpecialSymbols()</td>
+<td class="failures">6.185s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="success">Прошедший год</td>
+<td class="success">shouldLastYear()</td>
+<td class="success">0.921s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="failures">Месяц 00</td>
+<td class="failures">shouldMonthDoubleZero()</td>
+<td class="failures">6.050s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="success">Пустое поле месяца</td>
+<td class="success">shouldMonthIfEmpty()</td>
+<td class="success">0.754s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">Месяц 13</td>
+<td class="success">shouldMonthIfNotExist()</td>
+<td class="success">0.780s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">Месяц 12</td>
+<td class="success">shouldMonthMaximumValid()</td>
+<td class="success">6.187s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">Месяц 01</td>
+<td class="success">shouldMonthMinimumValid()</td>
+<td class="success">11.353s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">Пустое поле года</td>
+<td class="success">shouldYearIfEmpty()</td>
+<td class="success">0.880s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="failures">Год через 10 лет</td>
+<td class="failures">shouldYearTenYearsMore()</td>
+<td class="failures">15.993s</td>
+<td class="failures">failed</td>
+</tr>
+</table>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 8.8</a> at 13 окт. 2026 г., 22:17:53</p>
+</div>
+</div>
+</body>
+</html>
