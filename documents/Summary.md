@@ -1,3 +1,4 @@
+<img width="960" height="600" alt="Снимок экрана 2026-10-13 222723" src="https://github.com/user-attachments/assets/33fd17a7-1bba-40ea-8542-55d6df7803e5" />
 # Отчёт по итогам тестирования
 
 ## Краткое описание
